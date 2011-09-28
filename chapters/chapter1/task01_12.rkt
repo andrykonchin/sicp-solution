@@ -18,7 +18,9 @@
     (cons (+ (car line-tail) (cadr line-tail)) 
           (line-iter (cdr line-tail)))))
 
-(for-each (lambda (x) (display x) (newline) ) (pascal-triangle 6))
+; Пример треугольника Паскаля 
+(for-each (lambda (x) (display x) (newline) ) 
+          (pascal-triangle 6))
 
 
 

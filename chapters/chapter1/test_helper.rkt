@@ -3,7 +3,7 @@
 (require rackunit)
 
 (define-simple-check (check-close? a b)
-  (check-close-with-eps? a b 0.00001))
+  (check-= a b 0.000001 "Difference more than 0.00001"))
 
 (define-simple-check (check-close-with-eps? a b eps)
   (< (abs (- a b)) eps))
@@ -14,6 +14,5 @@
   (define finish-time (current-inexact-milliseconds))
   (- finish-time start-time))
 
-(provide check-close?
-         check-close-with-eps?
+(provide check-close? 
          time-test)
