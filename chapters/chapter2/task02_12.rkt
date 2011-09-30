@@ -35,3 +35,5 @@
               (make-interval 9.9 10.1))
 
 (check-close? (percent (make-center-percent 10 1)) 1)
+
+(check-close? (center (make-center-percent 10 1)) 10)
