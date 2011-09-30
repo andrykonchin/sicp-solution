@@ -1,7 +1,8 @@
 #lang racket
 
 (require rackunit
-         "../../utils/test_helper.rkt")
+         "../../utils/test_helper.rkt"
+         "lib/interval.rkt")
 
 ; Проходя мимо, Бен делает туманное замечание: «Если проверять знаки концов интервалов, 
 ; можно разбить mul-interval на девять случаев, из которых только в одном требуется более двух умножений». 
@@ -26,20 +27,6 @@
       ((and (pos x1) (pos x2) (neg y1) (pos y2)) (make-interval (* x2 y1) (* x2 y2)))
       ((and (neg x1) (pos x2) (neg y1) (pos y2)) (make-interval (min (* x1 y2) (* x2 y1)) (* x2 y2)))
       )))
-
-(define (mul-interval x y)
-  (let ((p1 (* (lower-bound x) (lower-bound y)))
-        (p2 (* (lower-bound x) (upper-bound y)))
-        (p3 (* (upper-bound x) (lower-bound y)))
-        (p4 (* (upper-bound x) (upper-bound y))))
-    (make-interval (min p1 p2 p3 p4)
-                   (max p1 p2 p3 p4))))
-
-(define (make-interval a b) (cons a b))
-
-(define (lower-bound i) (car i))
-
-(define (upper-bound i) (cdr i))
 
 
 ; тесты

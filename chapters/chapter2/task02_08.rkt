@@ -1,7 +1,8 @@
 #lang racket
 
 (require rackunit
-         "../../utils/test_helper.rkt")
+         "../../utils/test_helper.rkt"
+         "lib/interval.rkt")
 
 ; Рассуждая в духе Лизы, опишите, как можно вычислить разность двух интервалов. 
 ; Напишите соответствующую процедуру вычитания, называемую sub-interval.
@@ -10,12 +11,6 @@
 (define (sub-interval x y)
   (make-interval (- (lower-bound x) (upper-bound y))
                  (- (upper-bound x) (lower-bound y))))
-
-(define (make-interval a b) (cons a b))
-
-(define (lower-bound i) (min (car i) (cdr i)))
-
-(define (upper-bound i) (max (car i) (cdr i)))
 
 ; тесты
 
