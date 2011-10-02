@@ -1,7 +1,8 @@
 #lang racket
 
 (require rackunit
-         "../../utils/test_helper.rkt")
+         "../../utils/test_helper.rkt"
+         "lib/segment.rkt")
 
 ; Реализуйте представление прямоугольников на плоскости. (Подсказка: Вам могут потребоваться
 ; результаты упражнения 2.2.) Определите в терминах своих конструкторов и селекторов процедуры,
@@ -28,24 +29,6 @@
 (define (make-rectangle a b c d)
   (list a b c d))
 
-; базовые примитивы
-
-(define (make-segment start end) (cons start end))
-
-(define (length-segment s)
-  (let ((dx (- (x-point (start-segment s)) (x-point (end-segment s))))
-        (dy (- (y-point (start-segment s)) (y-point (end-segment s)))))
-    (sqrt (+ (* dx dx) (* dy dy)))))
-
-(define (start-segment s) (car s))
-
-(define (end-segment s) (cdr s))
-
-(define (make-point x y) (cons x y))
-
-(define (x-point p) (car p))
-
-(define (y-point p) (cdr p))
 
 ; тест
 
