@@ -17,11 +17,6 @@
   (let ((g (gcd (abs n) (abs d))))
     (normalize-sign-rat (cons (/ n g) (/ d g)))))
 
-(define (gcd a b)
-  (if (= b 0)
-      a
-      (gcd b (remainder a b))))
-
 (define (normalize-sign-rat x)
   (if (< (denom x) 0)
       (make-rat (- (number x)) (- (denom x)))
@@ -33,18 +28,14 @@
 
 ; тесты
 
-(check-eq? (mul-rat (make-rat 1 2)
-                    (make-rat 1 2))
-           (cons 1 2))
+(check-equal? (mul-rat (make-rat 1 2) (make-rat 1 2))
+              (cons 1 4))
 
-(check-eq? (mul-rat (make-rat 1 2)
-                    (make-rat 1 -2))
-           (cons -1 2))
+(check-equal? (mul-rat (make-rat 1 2) (make-rat 1 -2))
+              (cons -1 4))
 
-(check-eq? (mul-rat (make-rat 1 2) 
-                    (make-rat -1 2))
-           (cons -1 2))
+(check-equal? (mul-rat (make-rat 1 2) (make-rat -1 2))
+              (cons -1 4))
 
-(check-eq? (mul-rat (make-rat 1 2) 
-                    (make-rat -1 -2))
-           (cons 1 2))
+(check-equal? (mul-rat (make-rat 1 2) (make-rat -1 -2))
+              (cons 1 4))
