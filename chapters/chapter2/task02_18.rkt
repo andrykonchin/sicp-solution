@@ -7,7 +7,7 @@
 
 (define (reverse lst)
   (if (null? lst)
-      lst
+      null
       (append (reverse (cdr lst)) (list (car lst)))))
 
 ; тест

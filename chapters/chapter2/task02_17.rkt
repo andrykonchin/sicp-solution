@@ -13,8 +13,8 @@
 ; тест
 
 (check-equal? (last-pair '(23 72 149 34))
-           '(34))
+              '(34))
 
 (check-equal? (last-pair '(34))
-           '(34))
+              '(34))
          
